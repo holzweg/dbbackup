@@ -1,14 +1,14 @@
 $projects = {
 
   "mywebsite" => {
-    "sshHost" 	=> "www.mywebsite.com", 	# Hostname to connect to via SSH
-    "sshUser" 	=> "hwadmin",				      # Username to connect as via SSH
-    "sshPort" 	=> 22,						        # SSH- Port (Usually 22)
-    "mysqlUser" => "root",					      # MySQL User for dumping the database
-    "mysqlPass" => "PASW1234",				    # MySQL Password for dumping the database
-    "mysqlDb" 	=> "mywebsite",				    # MySQL Database to backup
-    "interval" 	=> 86400,					        # Interval between backups in seconds
-    "expire" 	  => 2592000					      # Expiration time in seconds (backups will be deleted after expiring)
+    "sshHost"   => "www.mywebsite.com",   # Hostname to connect to via SSH
+    "sshUser"   => "hwadmin",             # Username to connect as via SSH
+    "sshPort"   => 22,                    # SSH- Port (Usually 22)
+    "mysqlUser" => "root",                # MySQL User for dumping the database
+    "mysqlPass" => "PASW1234",            # MySQL Password for dumping the database
+    "mysqlDb"   => "mywebsite",           # MySQL Database to backup
+    "interval"  => 86400,                 # Interval between backups in seconds
+    "expire"    => 2592000                # Expiration time in seconds (backups will be deleted after expiring)
   }
   
 }
