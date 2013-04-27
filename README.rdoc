@@ -15,6 +15,10 @@ DBBackup has the following features:
 
 == Installation
 
+# Simply clone this repository via git
+
+  git clone git@github.com:holzweg/dbbackup.git
+
 == Configuration
 
 # Create the file config.rb and set up your webservers to backup (see config.rb.template for reference)
