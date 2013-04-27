@@ -1,0 +1,92 @@
+= DBBackup -- Rake Script
+
+This package contains DBBackup, a simple mysql backup tool to handle
+mysql backups from multiple servers and projects via SSH.
+
+DBBackup has the following features:
+
+* Configurable backup sources
+
+* Generate and download MySQL Dumps via SSH and store them locally with timestamp.
+
+* Configurable Backup- and Expiration Intervals.
+
+* Organized File structure to find backups easily.
+
+== Installation
+
+== Configuration
+
+# Create the file config.rb and set up your webservers to backup (see config.rb.template for reference)
+
+# Deploy your backup-host's public key on all your configured servers
+
+   rake setup
+
+== Usage
+
+The following command runs the backup- routine, and should be configured to run automatically as a cronjob:
+
+  rake backup
+
+== Example configuration
+
+  $projects = {
+
+    "mywebsite" => {
+      "sshHost"   => "www.mywebsite.com",   # Hostname to connect to via SSH
+      "sshUser"   => "hwadmin",             # Username to connect as via SSH
+      "sshPort"   => 22,                    # SSH- Port (Usually 22)
+      "mysqlUser" => "root",                # MySQL User for dumping the database
+      "mysqlPass" => "PASW1234",            # MySQL Password for dumping the database
+      "mysqlDb"   => "mywebsite",           # MySQL Database to backup
+      "interval"  => 86400,                 # Interval between backups in seconds
+      "expire"    => 2592000                # Expiration time in seconds (backups will be deleted after expiring)
+    }
+  
+  }
+
+== Development
+
+=== Source Repository
+
+DBBackup is currently hosted at github. The github web page is
+http://github.com/holzweg/dbbackup. The public git clone URL is
+
+* git://github.com/holzweg/dbbackup.git
+
+=== Issues and Bug Reports
+
+Feature requests and bug reports can be made here
+
+* https://github.com/holzweg/dbbackup/issues
+
+== License
+
+DBBackup is available under an MIT-style license:
+
+  Copyright (c) 2013 Tobias Strebitzer
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+= Other stuff
+
+Author::   Tobias Strebitzer <tobias.strebitzer@holzweg.com>
+Requires:: ruby, rake, mysql
